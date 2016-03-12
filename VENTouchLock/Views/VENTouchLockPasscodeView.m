@@ -4,6 +4,7 @@
 
 @interface VENTouchLockPasscodeView ()
 
+@property (weak, nonatomic) IBOutlet UIImageView *logoImage;
 @property (weak, nonatomic) IBOutlet UILabel *titleLabel;
 @property (weak, nonatomic) IBOutlet VENTouchLockPasscodeCharacterView *firstCharacter;
 @property (weak, nonatomic) IBOutlet VENTouchLockPasscodeCharacterView *secondCharacter;
@@ -13,6 +14,38 @@
 @end
 
 @implementation VENTouchLockPasscodeView
+
+int const MAX_HEIGHT = 400;
+int const MAX_WIDTH = 400;
+
+- (void)keepImageAspectRatio
+{
+    CGFloat aspectRatioMult = (_logoImage.image.size.width / _logoImage.image.size.height);
+    
+    // Constrain the desired aspect ratio
+    [_logoImage addConstraint:
+     [NSLayoutConstraint constraintWithItem:_logoImage
+                                  attribute:NSLayoutAttributeWidth
+                                  relatedBy:NSLayoutRelationEqual
+                                     toItem:_logoImage
+                                  attribute:NSLayoutAttributeHeight
+                                 multiplier:aspectRatioMult
+                                   constant:0]];
+    
+    // Constrain height
+    [_logoImage addConstraints:
+     [NSLayoutConstraint constraintsWithVisualFormat:@"H:[imageView(<=max)]"
+                                             options:0
+                                             metrics:@{@"max" : @(MAX_HEIGHT)}
+                                               views:@{@"imageView" : _logoImage}]];
+    
+    // Constrain width
+    [_logoImage addConstraints:
+     [NSLayoutConstraint constraintsWithVisualFormat:@"V:[imageView(<=max)]"
+                                             options:0
+                                             metrics:@{@"max" : @(MAX_WIDTH)}
+                                               views:@{@"imageView" : _logoImage}]];
+}
 
 - (instancetype)initWithTitle:(NSString *)title frame:(CGRect)frame titleColor:(UIColor *)titleColor characterColor:(UIColor *)characterColor
 {
@@ -79,6 +112,12 @@
 {
     _title = title;
     self.titleLabel.text = _title;
+}
+
+- (void)setLogo:(UIImage *)logo
+{
+    _logo = logo;
+    [self.logoImage setImage:logo];
 }
 
 - (void)setCharacterColor:(UIColor *)characterColor

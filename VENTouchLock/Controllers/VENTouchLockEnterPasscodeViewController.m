@@ -31,6 +31,8 @@ NSString *const VENTouchLockEnterPasscodeUserDefaultsKeyNumberOfConsecutivePassc
 {
     [super viewDidLoad];
     self.passcodeView.title = [self.touchLock appearance].enterPasscodeInitialLabelText;
+    self.passcodeView.logo = [self.touchLock appearance].passcodeViewLogoImage;
+    [self.passcodeView keepImageAspectRatio];
 }
 
 - (void)enteredPasscode:(NSString *)passcode

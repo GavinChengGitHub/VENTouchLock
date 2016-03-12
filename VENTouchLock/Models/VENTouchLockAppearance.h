@@ -30,6 +30,11 @@
 @property (strong, nonatomic) NSString *enterPasscodeIncorrectLabelText;
 @property (strong, nonatomic) NSString *enterPasscodeViewControllerTitle;
 
+/**-----------------------------------------------------------------------------
+ * @description Passcode View Logo Image
+ * -----------------------------------------------------------------------------
+ */
+@property (strong, nonatomic) UIImage *passcodeViewLogoImage;
 
 /**-----------------------------------------------------------------------------
  * @description Splash Preferences

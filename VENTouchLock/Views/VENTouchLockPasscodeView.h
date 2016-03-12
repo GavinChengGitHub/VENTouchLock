@@ -3,6 +3,11 @@
 @interface VENTouchLockPasscodeView : UIView
 
 /**
+ The logo on top of the passcode title.
+ */
+@property (strong, nonatomic) UIImage *logo;
+
+/**
  The title string directly on top of the passcode characters.
  */
 @property (strong, nonatomic) NSString *title;
@@ -37,5 +42,7 @@
  @param completionBlock called after shake and vibrate complete
  */
 - (void)shakeAndVibrateCompletion:(void (^)())completionBlock;
+
+- (void)keepImageAspectRatio;
 
 @end
