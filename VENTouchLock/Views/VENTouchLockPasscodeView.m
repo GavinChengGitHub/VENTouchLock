@@ -15,8 +15,8 @@
 
 @implementation VENTouchLockPasscodeView
 
-int const MAX_HEIGHT = 400;
-int const MAX_WIDTH = 400;
+int const MAX_HEIGHT = 200;
+int const MAX_WIDTH = 200;
 
 - (void)keepImageAspectRatio
 {
@@ -34,17 +34,17 @@ int const MAX_WIDTH = 400;
     
     // Constrain height
     [_logoImage addConstraints:
-     [NSLayoutConstraint constraintsWithVisualFormat:@"H:[imageView(<=max)]"
+     [NSLayoutConstraint constraintsWithVisualFormat:@"H:[_logoImage(<=max)]"
                                              options:0
                                              metrics:@{@"max" : @(MAX_HEIGHT)}
-                                               views:@{@"imageView" : _logoImage}]];
+                                               views:@{@"_logoImage" : _logoImage}]];
     
     // Constrain width
     [_logoImage addConstraints:
-     [NSLayoutConstraint constraintsWithVisualFormat:@"V:[imageView(<=max)]"
+     [NSLayoutConstraint constraintsWithVisualFormat:@"V:[_logoImage(<=max)]"
                                              options:0
                                              metrics:@{@"max" : @(MAX_WIDTH)}
-                                               views:@{@"imageView" : _logoImage}]];
+                                               views:@{@"_logoImage" : _logoImage}]];
 }
 
 - (instancetype)initWithTitle:(NSString *)title frame:(CGRect)frame titleColor:(UIColor *)titleColor characterColor:(UIColor *)characterColor
@@ -117,6 +117,14 @@ int const MAX_WIDTH = 400;
 - (void)setLogo:(UIImage *)logo
 {
     _logo = logo;
+    self.logoImage.contentMode = UIViewContentModeScaleAspectFill;
+    /*self.logoImage.autoresizingMask =
+    ( UIViewAutoresizingFlexibleBottomMargin
+     | UIViewAutoresizingFlexibleHeight
+     | UIViewAutoresizingFlexibleLeftMargin
+     | UIViewAutoresizingFlexibleRightMargin
+     | UIViewAutoresizingFlexibleTopMargin
+     | UIViewAutoresizingFlexibleWidth );*/
     [self.logoImage setImage:logo];
 }
 
