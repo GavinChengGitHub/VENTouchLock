@@ -37,6 +37,12 @@
 @property (strong, nonatomic) UIImage *passcodeViewLogoImage;
 
 /**-----------------------------------------------------------------------------
+ * @description Passcode View Log Out Text
+ * -----------------------------------------------------------------------------
+ */
+@property (strong, nonatomic) NSString *passcodeViewLogoutText;
+
+/**-----------------------------------------------------------------------------
  * @description Splash Preferences
  * -----------------------------------------------------------------------------
  */

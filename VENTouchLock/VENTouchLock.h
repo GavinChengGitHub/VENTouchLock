@@ -35,6 +35,7 @@ typedef NS_ENUM(NSUInteger, VENTouchLockTouchIDResponse) {
            keychainAccount:(NSString *)account
              touchIDReason:(NSString *)reason
       passcodeAttemptLimit:(NSUInteger)attemptLimit
+passcodeAttemptDisplayLogOut:(NSUInteger)attemptDisplayLogOut
  splashViewControllerClass:(Class)splashViewControllerClass;
 
 /**
@@ -92,6 +93,8 @@ typedef NS_ENUM(NSUInteger, VENTouchLockTouchIDResponse) {
  The maximum number of incorrect passcode attempts before the exceededLimitAction is called.
  */
 - (NSUInteger)passcodeAttemptLimit;
+
+- (NSUInteger)passcodeAttemptDisplayLogOut;
 
 /**
  If a passcode is set, calling this method will lock the app. Otherwise, calling it will not do anything.

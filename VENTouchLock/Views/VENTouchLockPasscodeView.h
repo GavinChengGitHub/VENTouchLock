@@ -13,6 +13,11 @@
 @property (strong, nonatomic) NSString *title;
 
 /**
+ The log out button shown only when fail twice
+ */
+@property (weak, nonatomic) IBOutlet UIButton *logOutButton;
+
+/**
  An array of the passcode character subviews.
  */
 @property (strong, nonatomic) NSArray *characters;

@@ -3,6 +3,7 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9530"/>
+        <capability name="Alignment constraints with different attributes" minToolsVersion="5.1"/>
     </dependencies>
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
@@ -37,11 +38,6 @@
                         <constraint firstAttribute="width" constant="140" id="niO-0V-7Dv"/>
                     </constraints>
                 </view>
-                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Create a new Passcode" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="eLU-Cf-PfB">
-                    <rect key="frame" x="224" y="253" width="153" height="17"/>
-                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                    <nil key="highlightedColor"/>
-                </label>
                 <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Ots-KP-FUd">
                     <rect key="frame" x="145" y="39" width="311" height="135"/>
                     <constraints>
@@ -49,6 +45,17 @@
                         <constraint firstAttribute="height" relation="lessThanOrEqual" constant="400" id="cvW-A5-YFu"/>
                     </constraints>
                 </imageView>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Create a new Passcode" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="eLU-Cf-PfB">
+                    <rect key="frame" x="224" y="253" width="153" height="17"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                    <nil key="highlightedColor"/>
+                </label>
+                <button hidden="YES" opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="0Ce-sC-wJ7">
+                    <rect key="frame" x="164" y="342" width="273" height="30"/>
+                    <state key="normal" title="Log Out">
+                        <color key="titleColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
+                    </state>
+                </button>
             </subviews>
             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
             <constraints>
@@ -56,7 +63,9 @@
                 <constraint firstItem="Ots-KP-FUd" firstAttribute="centerX" secondItem="eLU-Cf-PfB" secondAttribute="centerX" id="HkM-o9-Rrq"/>
                 <constraint firstItem="hmH-B4-kMw" firstAttribute="top" secondItem="eLU-Cf-PfB" secondAttribute="bottom" constant="20" id="O0X-T3-NJ0"/>
                 <constraint firstAttribute="centerX" secondItem="hmH-B4-kMw" secondAttribute="centerX" constant="-0.5" id="OB4-g9-djM"/>
+                <constraint firstItem="0Ce-sC-wJ7" firstAttribute="top" secondItem="bdw-Aj-hKx" secondAttribute="centerY" id="XPo-6L-IFa" userLabel="Log Out Button.top = View.bottom + 20"/>
                 <constraint firstAttribute="centerY" secondItem="hmH-B4-kMw" secondAttribute="centerY" constant="0.5" id="axr-wq-hvx"/>
+                <constraint firstItem="0Ce-sC-wJ7" firstAttribute="centerX" secondItem="bdw-Aj-hKx" secondAttribute="centerX" id="nUH-rv-Ez5"/>
                 <constraint firstAttribute="centerX" secondItem="eLU-Cf-PfB" secondAttribute="centerX" constant="-0.5" id="xb2-T8-rCA"/>
             </constraints>
             <nil key="simulatedStatusBarMetrics"/>
@@ -64,6 +73,7 @@
             <connections>
                 <outlet property="firstCharacter" destination="Iua-bQ-4SM" id="MJi-m9-IE7"/>
                 <outlet property="fourthCharacter" destination="ny9-0E-RL0" id="SCl-TF-9lZ"/>
+                <outlet property="logOutButton" destination="0Ce-sC-wJ7" id="00r-Kg-xJm"/>
                 <outlet property="logoImage" destination="Ots-KP-FUd" id="SpE-pR-y4t"/>
                 <outlet property="secondCharacter" destination="L07-uS-BwE" id="qkR-69-ysy"/>
                 <outlet property="thirdCharacter" destination="Mqv-eX-aBs" id="yzV-IW-7l2"/>

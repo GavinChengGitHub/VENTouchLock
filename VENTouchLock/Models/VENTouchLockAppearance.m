@@ -18,6 +18,7 @@
         _enterPasscodeInitialLabelText = NSLocalizedString(@"Enter your passcode", nil);
         _enterPasscodeIncorrectLabelText = NSLocalizedString(@"Incorrect passcode. Try again.", nil);
         _enterPasscodeViewControllerTitle = NSLocalizedString(@"Enter Passcode", nil);
+        _passcodeViewLogoutText = NSLocalizedString(@"Log Out", nil);
         _splashShouldEmbedInNavigationController = NO;
         _touchIDCancelPresentsPasscodeViewController = NO;
         _navigationBarClass = [UINavigationBar class];

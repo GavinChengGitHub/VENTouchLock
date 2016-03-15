@@ -31,6 +31,8 @@ NSString *const VENTouchLockEnterPasscodeUserDefaultsKeyNumberOfConsecutivePassc
 {
     [super viewDidLoad];
     self.passcodeView.title = [self.touchLock appearance].enterPasscodeInitialLabelText;
+    [[self.passcodeView logOutButton] setTitle:[self.touchLock appearance].passcodeViewLogoutText forState:UIControlStateNormal];
+    [[self.passcodeView logOutButton] setTitleColor:[self.touchLock appearance].passcodeViewControllerTitleColor forState:UIControlStateNormal];
     self.passcodeView.logo = [self.touchLock appearance].passcodeViewLogoImage;
     [self.passcodeView keepImageAspectRatio];
 }
@@ -50,7 +52,6 @@ NSString *const VENTouchLockEnterPasscodeUserDefaultsKeyNumberOfConsecutivePassc
                 [self recordIncorrectPasscodeAttempt];
             }
         }];
-
     }
 }
 
@@ -61,6 +62,13 @@ NSString *const VENTouchLockEnterPasscodeUserDefaultsKeyNumberOfConsecutivePassc
     numberOfAttemptsSoFar ++;
     [standardDefaults setInteger:numberOfAttemptsSoFar forKey:VENTouchLockEnterPasscodeUserDefaultsKeyNumberOfConsecutivePasscodeAttempts];
     [standardDefaults synchronize];
+    if (numberOfAttemptsSoFar >= [self.touchLock passcodeAttemptDisplayLogOut]) {
+        [self.passcodeView.logOutButton setHidden:false];
+        [self.passcodeView.logOutButton addTarget:self
+                                           action:@selector(callExceededLimitActionBlock)
+                                 forControlEvents:UIControlEventTouchUpInside];
+    }
+    
     if (numberOfAttemptsSoFar >= [self.touchLock passcodeAttemptLimit]) {
         [self callExceededLimitActionBlock];
     }
