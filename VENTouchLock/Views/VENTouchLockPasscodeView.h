@@ -43,6 +43,11 @@
 - (instancetype)initWithTitle:(NSString *)title frame:(CGRect)frame titleColor:(UIColor *)titleColor characterColor:(UIColor *)characterColor;
 
 /**
+ Creates a passcode view controller with the given title and frame.
+ */
+- (instancetype)initWithTitle:(NSString *)title frame:(CGRect)frame titleColor:(UIColor *)titleColor characterColor:(UIColor *)characterColor logo:(UIImage *)logo;
+
+/**
  Shakes the reciever and vibrates the device.
  @param completionBlock called after shake and vibrate complete
  */

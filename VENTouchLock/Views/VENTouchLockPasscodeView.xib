@@ -3,7 +3,6 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9530"/>
-        <capability name="Alignment constraints with different attributes" minToolsVersion="5.1"/>
     </dependencies>
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
@@ -51,7 +50,7 @@
                     <nil key="highlightedColor"/>
                 </label>
                 <button hidden="YES" opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="0Ce-sC-wJ7">
-                    <rect key="frame" x="164" y="342" width="273" height="30"/>
+                    <rect key="frame" x="164" y="194" width="273" height="30"/>
                     <state key="normal" title="Log Out">
                         <color key="titleColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
                     </state>
@@ -63,8 +62,8 @@
                 <constraint firstItem="Ots-KP-FUd" firstAttribute="centerX" secondItem="eLU-Cf-PfB" secondAttribute="centerX" id="HkM-o9-Rrq"/>
                 <constraint firstItem="hmH-B4-kMw" firstAttribute="top" secondItem="eLU-Cf-PfB" secondAttribute="bottom" constant="20" id="O0X-T3-NJ0"/>
                 <constraint firstAttribute="centerX" secondItem="hmH-B4-kMw" secondAttribute="centerX" constant="-0.5" id="OB4-g9-djM"/>
-                <constraint firstItem="0Ce-sC-wJ7" firstAttribute="top" secondItem="bdw-Aj-hKx" secondAttribute="centerY" id="XPo-6L-IFa" userLabel="Log Out Button.top = View.bottom + 20"/>
                 <constraint firstAttribute="centerY" secondItem="hmH-B4-kMw" secondAttribute="centerY" constant="0.5" id="axr-wq-hvx"/>
+                <constraint firstItem="0Ce-sC-wJ7" firstAttribute="top" secondItem="Ots-KP-FUd" secondAttribute="bottom" constant="40" id="hoV-fl-OM9"/>
                 <constraint firstItem="0Ce-sC-wJ7" firstAttribute="centerX" secondItem="bdw-Aj-hKx" secondAttribute="centerX" id="nUH-rv-Ez5"/>
                 <constraint firstAttribute="centerX" secondItem="eLU-Cf-PfB" secondAttribute="centerX" constant="-0.5" id="xb2-T8-rCA"/>
             </constraints>

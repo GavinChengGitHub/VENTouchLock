@@ -49,8 +49,13 @@ int const MAX_WIDTH = 200;
 
 - (instancetype)initWithTitle:(NSString *)title frame:(CGRect)frame titleColor:(UIColor *)titleColor characterColor:(UIColor *)characterColor
 {
+    return [self initWithTitle:title frame:frame titleColor:titleColor characterColor:characterColor logo:nil];
+}
+
+- (instancetype)initWithTitle:(NSString *)title frame:(CGRect)frame titleColor:(UIColor *)titleColor characterColor:(UIColor *)characterColor logo:(UIImage *)logo
+{
     NSArray *nibArray = [[NSBundle bundleForClass:[self class]] loadNibNamed:NSStringFromClass([self class])
-                                                      owner:self options:nil];
+                                                                       owner:self options:nil];
     self = [nibArray firstObject];
     if (self) {
         self.frame = frame;
@@ -61,6 +66,12 @@ int const MAX_WIDTH = 200;
         _titleLabel.textColor = titleColor;
         _characterColor = characterColor;
         _characters = @[_firstCharacter, _secondCharacter, _thirdCharacter, _fourthCharacter];
+        
+        if (logo) {
+            [self setLogo:logo];
+            [self keepImageAspectRatio];
+        }
+        
         for (VENTouchLockPasscodeCharacterView *characterView in _characters) {
             characterView.fillColor = characterColor;
         }
@@ -70,7 +81,7 @@ int const MAX_WIDTH = 200;
 
 - (instancetype)initWithTitle:(NSString *)title frame:(CGRect)frame;
 {
-    return [self initWithTitle:title frame:frame titleColor:[UIColor blackColor] characterColor:[UIColor blackColor]];
+    return [self initWithTitle:title frame:frame titleColor:[UIColor blackColor] characterColor:[UIColor blackColor] logo:nil];
 }
 
 - (instancetype)initWithFrame:(CGRect)frame
